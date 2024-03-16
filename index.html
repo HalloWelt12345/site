@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pikachu Donnerblitz</title>
+<title>Pikachu vs. Mewtu</title>
 <style>
-    #pikachu {
+    .pokemon {
         position: absolute;
-        left: 0;
         top: 100px;
         transition: left 5s linear;
     }
@@ -15,33 +14,52 @@
 </head>
 <body>
 
-<div id="pikachu">
+<div id="pikachu" class="pokemon">
     <img src="https://img.icons8.com/color/48/000000/pikachu-pokemon.png" alt="Pikachu">
 </div>
 
+<div id="mewtwo" class="pokemon">
+    <img src="https://img.icons8.com/color/48/000000/mewtwo-pokemon.png" alt="Mewtwo">
+</div>
+
 <script>
-function laufeNachRechtsUndDonnerblitz() {
-    const pikachuDiv = document.getElementById("pikachu");
-    pikachuDiv.style.left = "calc(100vw - 48px)"; // 48px ist die Breite des Bildes
+function laufeNachRechts(pokemonDiv) {
+    pokemonDiv.style.left = "calc(100vw - 48px)"; // 48px ist die Breite des Bildes
+}
+
+function donnerblitz(pokemonDiv) {
+    const donnerblitz = document.createElement("img");
+    donnerblitz.src = "https://img.icons8.com/color/48/000000/thunderbolt.png";
+    donnerblitz.style.position = "absolute";
+    donnerblitz.style.left = "calc(100vw - 48px)"; // 48px ist die Breite des Bildes
+    donnerblitz.style.top = "100px";
+    document.body.appendChild(donnerblitz);
     setTimeout(function() {
-        const donnerblitz = document.createElement("img");
-        donnerblitz.src = "https://img.icons8.com/color/48/000000/thunderbolt.png";
-        donnerblitz.style.position = "absolute";
-        donnerblitz.style.left = "calc(100vw - 48px)"; // 48px ist die Breite des Bildes
-        donnerblitz.style.top = "100px";
-        document.body.appendChild(donnerblitz);
-        setTimeout(function() {
-            document.body.removeChild(donnerblitz);
-            pikachuDiv.style.left = "0";
-        }, 1000); // Dauer des Donnerblitzes in Millisekunden
-    }, 5000); // Wartezeit bis zum Donnerblitz in Millisekunden
+        document.body.removeChild(donnerblitz);
+        pokemonDiv.style.left = "0";
+    }, 1000); // Dauer des Donnerblitzes in Millisekunden
 }
 
 // Startet die Funktion, wenn die Seite geladen wird
 window.onload = function() {
-    laufeNachRechtsUndDonnerblitz();
+    const pikachuDiv = document.getElementById("pikachu");
+    const mewtwoDiv = document.getElementById("mewtwo");
+
+    laufeNachRechts(pikachuDiv);
+    setTimeout(function() {
+        donnerblitz(pikachuDiv);
+    }, 5000);
+
+    setTimeout(function() {
+        laufeNachRechts(mewtwoDiv);
+    }, 6000);
+
+    setTimeout(function() {
+        donnerblitz(mewtwoDiv);
+    }, 11000);
 };
 </script>
 
 </body>
 </html>
+
