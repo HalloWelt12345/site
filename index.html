@@ -1,1 +1,33 @@
-Hallo Welt, ich bin RB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASCII zu Binär Umrechner</title>
+</head>
+<body>
+
+<h2>ASCII zu Binär Umrechner</h2>
+
+<label for="buchstabe">Buchstabe:</label>
+<input type="text" id="buchstabe">
+<button onclick="konvertiereZuBinär()">Konvertieren</button>
+
+<p id="ergebnis"></p>
+
+<script>
+function konvertiereZuBinär() {
+    var buchstabe = document.getElementById("buchstabe").value;
+    if (buchstabe.length !== 1) {
+        document.getElementById("ergebnis").innerHTML = "Bitte geben Sie einen einzigen Buchstaben ein.";
+        return;
+    }
+    var asciiCode = buchstabe.charCodeAt(0);
+    var binär = asciiCode.toString(2);
+    document.getElementById("ergebnis").innerHTML = "Der ASCII-Code für '" + buchstabe + "' ist: " + asciiCode + "<br>" +
+                                                      "Die Binärrepräsentation ist: " + binär;
+}
+</script>
+
+</body>
+</html>
