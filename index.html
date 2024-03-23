@@ -6,21 +6,24 @@
 <title>Mein Haustier</title>
 <style>
     #hund {
-        width: 100px;
-        height: 100px;
-        background-color: brown;
+        width: 120px;
+        height: 80px;
+        background-color: #D69B6D;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        border-radius: 50px 50px 25px 25px;
+        overflow: hidden;
     }
     .auge {
-        width: 20px;
-        height: 20px;
-        background-color: white;
+        width: 30px;
+        height: 30px;
+        background-color: #FFF;
         border-radius: 50%;
         position: absolute;
-        top: 40%;
+        top: 30%;
+        transition: transform 0.3s ease;
     }
     #auge-links {
         left: 20%;
@@ -33,17 +36,17 @@
         height: 0;
         border-style: solid;
         border-width: 20px 15px 0 15px;
-        border-color: brown transparent transparent transparent;
+        border-color: #D69B6D transparent transparent transparent;
         position: absolute;
-        top: 0;
+        top: -10px;
+        transform: rotate(-45deg);
     }
     #ohr-links {
         left: 0;
-        transform: rotate(45deg);
     }
     #ohr-rechts {
         right: 0;
-        transform: rotate(-45deg);
+        transform: rotate(45deg);
     }
 </style>
 </head>
