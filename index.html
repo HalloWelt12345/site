@@ -6,8 +6,8 @@
 <title>Mein Haustier</title>
 <style>
     #hund {
-        width: 120px;
-        height: 80px;
+        width: 180px;
+        height: 120px;
         background-color: #D69B6D;
         position: absolute;
         top: 50%;
@@ -17,8 +17,8 @@
         overflow: hidden;
     }
     .auge {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         background-color: #FFF;
         border-radius: 50%;
         position: absolute;
@@ -26,27 +26,47 @@
         transition: transform 0.3s ease;
     }
     #auge-links {
-        left: 20%;
+        left: 25%;
     }
     #auge-rechts {
-        right: 20%;
+        right: 25%;
     }
     .ohr {
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 20px 15px 0 15px;
+        border-width: 20px 10px 0 10px;
         border-color: #D69B6D transparent transparent transparent;
         position: absolute;
-        top: -10px;
-        transform: rotate(-45deg);
+        top: -5px;
     }
     #ohr-links {
-        left: 0;
+        left: 20px;
+        transform: rotate(-45deg);
     }
     #ohr-rechts {
-        right: 0;
+        right: 20px;
         transform: rotate(45deg);
+    }
+    .nase {
+        width: 12px;
+        height: 12px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .mund {
+        width: 60px;
+        height: 20px;
+        border: 2px solid #000;
+        border-radius: 10px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 </style>
 </head>
@@ -59,6 +79,8 @@
     <div class="auge" id="auge-rechts"></div>
     <div class="ohr" id="ohr-links"></div>
     <div class="ohr" id="ohr-rechts"></div>
+    <div class="nase"></div>
+    <div class="mund"></div>
 </div>
 
 <script>
