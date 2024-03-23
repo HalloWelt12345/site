@@ -3,105 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mein Haustier</title>
+<title>Meine Katze</title>
 <style>
     body {
         margin: 0;
         padding: 0;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        height: 100vh;
     }
 
-    #header {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
+    #katzenbild {
+        width: 200px;
     }
+</style>
+</head>
+<body>
 
-    #hund-container {
-        position: relative;
-    }
+<img id="katzenbild" src="https://via.placeholder.com/200" alt="Katze">
 
-    #hund {
-        width: 180px;
-        height: 120px;
-        background-color: #D69B6D;
-        border-radius: 50px 50px 25px 25px;
-        overflow: hidden;
-    }
+<script>
+// JavaScript-Code, um die Katze zu animieren oder zu interagieren, kann hier hinzugefügt werden.
+</script>
 
-    .auge {
-        width: 20px;
-        height: 20px;
-        background-color: #FFF;
-        border-radius: 50%;
-        position: absolute;
-        top: 30%;
-        transition: transform 0.3s ease;
-    }
-
-    #auge-links {
-        left: 25%;
-    }
-
-    #auge-rechts {
-        right: 25%;
-    }
-
-    .ohr {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 20px 10px 0 10px;
-        border-color: #D69B6D transparent transparent transparent;
-        position: absolute;
-        top: -5px;
-    }
-
-    #ohr-links {
-        left: 20px;
-        transform: rotate(-45deg);
-    }
-
-    #ohr-rechts {
-        right: 20px;
-        transform: rotate(45deg);
-    }
-
-    .nase {
-        width: 12px;
-        height: 12px;
-        background-color: #000;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .mund {
-        width: 60px;
-        height: 20px;
-        border: 2px solid #000;
-        border-radius: 10px;
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #button-container {
-        position: relative;
-        margin-top: 20px;
-    }
-
-    .button {
-        display: block;
-        width: 100px;
-        height: 40px;
-        margin-bottom: 10px;
-        background-color: #4CAF50;
- 
+</body>
+</html>
