@@ -53,6 +53,15 @@
         border-radius: 10px;
         padding: 10px;
     }
+
+    #herz {
+        display: none;
+        position: absolute;
+        left: 250px;
+        top: 150px;
+        font-size: 60px;
+        color: red;
+    }
 </style>
 </head>
 <body>
@@ -97,6 +106,10 @@
     <p>Lecker!</p>
 </div>
 
+<div id="herz">
+    &hearts;
+</div>
+
 <script>
 function fuettern() {
     var sprechblase = document.getElementById('sprechblase');
@@ -111,6 +124,13 @@ function fuettern() {
 }
 
 function streicheln() {
+    var herz = document.getElementById('herz');
+    herz.style.display = 'block';
+
+    setTimeout(function() {
+        herz.style.display = 'none';
+    }, 3000);
+
     // Hier können Sie JavaScript-Code hinzufügen, um das Streicheln zu implementieren
     alert("Du hast dein Haustier gestreichelt!");
 }
