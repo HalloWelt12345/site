@@ -20,6 +20,26 @@
         margin-top: 20px;
         font-family: Arial, sans-serif;
     }
+
+    #button-container {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .button {
+        display: block;
+        width: 100px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -54,6 +74,23 @@
     <rect x="150" y="340" width="30" height="100" fill="#ffcc99" />
     <rect x="220" y="340" width="30" height="100" fill="#ffcc99" />
 </svg>
+
+<div id="button-container">
+    <button class="button" onclick="fuettern()">Füttern</button>
+    <button class="button" onclick="streicheln()">Streicheln</button>
+</div>
+
+<script>
+function fuettern() {
+    // Hier können Sie JavaScript-Code hinzufügen, um das Füttern zu implementieren
+    alert("Du hast dein Haustier gefüttert!");
+}
+
+function streicheln() {
+    // Hier können Sie JavaScript-Code hinzufügen, um das Streicheln zu implementieren
+    alert("Du hast dein Haustier gestreichelt!");
+}
+</script>
 
 </body>
 </html>
