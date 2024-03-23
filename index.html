@@ -101,6 +101,26 @@
         display: inline-block;
         margin-right: 5px;
     }
+
+    #button-container {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    .button {
+        display: block;
+        width: 100px;
+        height: 40px;
+        margin-bottom: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
@@ -126,9 +146,11 @@
     </div>
 </div>
 
-<script>
-// Hier können Sie JavaScript-Code hinzufügen, um den Hund zu animieren oder zu interagieren.
-</script>
+<div id="button-container">
+    <button class="button" onclick="fuettern()">Füttern</button>
+    <button class="button" onclick="streicheln()">Streicheln</button>
+</div>
 
-</body>
-</html>
+<script>
+function fuettern() {
+    // Hier können Sie Java
