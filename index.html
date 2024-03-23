@@ -5,17 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mein Haustier</title>
 <style>
+    #hund-container {
+        position: relative;
+    }
+
     #hund {
         width: 180px;
         height: 120px;
         background-color: #D69B6D;
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         border-radius: 50px 50px 25px 25px;
         overflow: hidden;
     }
+
     .auge {
         width: 20px;
         height: 20px;
@@ -25,12 +30,15 @@
         top: 30%;
         transition: transform 0.3s ease;
     }
+
     #auge-links {
         left: 25%;
     }
+
     #auge-rechts {
         right: 25%;
     }
+
     .ohr {
         width: 0;
         height: 0;
@@ -40,14 +48,17 @@
         position: absolute;
         top: -5px;
     }
+
     #ohr-links {
         left: 20px;
         transform: rotate(-45deg);
     }
+
     #ohr-rechts {
         right: 20px;
         transform: rotate(45deg);
     }
+
     .nase {
         width: 12px;
         height: 12px;
@@ -58,6 +69,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
     .mund {
         width: 60px;
         height: 20px;
@@ -68,19 +80,50 @@
         left: 50%;
         transform: translateX(-50%);
     }
+
+    #energieleiste {
+        width: 200px;
+        height: 30px;
+        background-color: #EEE;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .herz {
+        width: 24px;
+        height: 24px;
+        background-image: url('https://img.icons8.com/ios/50/000000/heart.png');
+        background-size: cover;
+        display: inline-block;
+        margin-right: 5px;
+    }
 </style>
 </head>
 <body>
 
 <h1 style="text-align: center;">Mein Haustier</h1>
 
-<div id="hund">
-    <div class="auge" id="auge-links"></div>
-    <div class="auge" id="auge-rechts"></div>
-    <div class="ohr" id="ohr-links"></div>
-    <div class="ohr" id="ohr-rechts"></div>
-    <div class="nase"></div>
-    <div class="mund"></div>
+<div id="hund-container">
+    <div id="hund">
+        <div class="auge" id="auge-links"></div>
+        <div class="auge" id="auge-rechts"></div>
+        <div class="ohr" id="ohr-links"></div>
+        <div class="ohr" id="ohr-rechts"></div>
+        <div class="nase"></div>
+        <div class="mund"></div>
+    </div>
+
+    <div id="energieleiste">
+        <div class="herz"></div>
+        <div class="herz"></div>
+        <div class="herz"></div>
+        <div class="herz"></div>
+        <div class="herz"></div>
+    </div>
 </div>
 
 <script>
