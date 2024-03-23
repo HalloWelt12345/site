@@ -9,9 +9,16 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        height: 100vh;
+    }
+
+    #header {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
     }
 
     #hund-container {
@@ -87,10 +94,8 @@
     }
 
     #button-container {
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
+        position: relative;
+        margin-top: 20px;
     }
 
     .button {
@@ -99,45 +104,4 @@
         height: 40px;
         margin-bottom: 10px;
         background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-</style>
-</head>
-<body>
-
-<h1 style="text-align: center;">Mein Haustier</h1>
-
-<div id="hund-container">
-    <div id="hund">
-        <div class="auge" id="auge-links"></div>
-        <div class="auge" id="auge-rechts"></div>
-        <div class="ohr" id="ohr-links"></div>
-        <div class="ohr" id="ohr-rechts"></div>
-        <div class="nase"></div>
-        <div class="mund"></div>
-    </div>
-</div>
-
-<div id="button-container">
-    <button class="button" onclick="fuettern()">Füttern</button>
-    <button class="button" onclick="streicheln()">Streicheln</button>
-</div>
-
-<script>
-function fuettern() {
-    // Hier können Sie JavaScript-Code hinzufügen, um das Füttern zu implementieren
-    alert("Du hast deinen Hund gefüttert!");
-}
-
-function streicheln() {
-    // Hier können Sie JavaScript-Code hinzufügen, um das Streicheln zu implementieren
-    alert("Du hast deinen Hund gestreichelt!");
-}
-</script>
-
-</body>
-</html>
+ 
