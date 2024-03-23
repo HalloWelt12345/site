@@ -40,6 +40,19 @@
         font-size: 16px;
         cursor: pointer;
     }
+
+    #sprechblase {
+        display: none;
+        position: absolute;
+        left: 230px;
+        top: 100px;
+        width: 100px;
+        height: 60px;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 10px;
+        padding: 10px;
+    }
 </style>
 </head>
 <body>
@@ -80,8 +93,15 @@
     <button class="button" onclick="streicheln()">Streicheln</button>
 </div>
 
+<div id="sprechblase">
+    <p>Lecker!</p>
+</div>
+
 <script>
 function fuettern() {
+    var sprechblase = document.getElementById('sprechblase');
+    sprechblase.style.display = 'block';
+
     // Hier können Sie JavaScript-Code hinzufügen, um das Füttern zu implementieren
     alert("Du hast dein Haustier gefüttert!");
 }
