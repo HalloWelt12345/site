@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meine Katze</title>
+<title>Meine Comic-Katze</title>
 <style>
     body {
         margin: 0;
@@ -12,20 +12,40 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-    }
-
-    #katzenbild {
-        width: 200px;
+        background-color: #f8f8f8;
     }
 </style>
 </head>
 <body>
 
-<img id="katzenbild" src="https://via.placeholder.com/200" alt="Katze">
-
-<script>
-// JavaScript-Code, um die Katze zu animieren oder zu interagieren, kann hier hinzugefügt werden.
-</script>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="200">
+    <!-- Kopf -->
+    <circle cx="200" cy="200" r="100" fill="#ffcc99" />
+    <!-- Ohren -->
+    <path d="M150 100 L100 50 Q50 100 100 150 Z" fill="#ffcc99" />
+    <path d="M250 100 L300 50 Q350 100 300 150 Z" fill="#ffcc99" />
+    <!-- Augen -->
+    <circle cx="160" cy="180" r="10" fill="#fff" />
+    <circle cx="240" cy="180" r="10" fill="#fff" />
+    <!-- Pupillen -->
+    <circle cx="160" cy="180" r="5" fill="#000" />
+    <circle cx="240" cy="180" r="5" fill="#000" />
+    <!-- Nase -->
+    <circle cx="200" cy="210" r="5" fill="#000" />
+    <!-- Mund -->
+    <path d="M150 230 Q200 260 250 230" fill="none" stroke="#000" stroke-width="3" />
+    <!-- Schnurrhaare -->
+    <line x1="120" y1="210" x2="140" y2="210" stroke="#000" stroke-width="2" />
+    <line x1="260" y1="210" x2="280" y2="210" stroke="#000" stroke-width="2" />
+    <!-- Körper -->
+    <ellipse cx="200" cy="320" rx="100" ry="150" fill="#ffcc99" />
+    <!-- Arme -->
+    <rect x="50" y="200" width="100" height="30" fill="#ffcc99" transform="rotate(-20 50 200)" />
+    <rect x="250" y="200" width="100" height="30" fill="#ffcc99" transform="rotate(20 300 200)" />
+    <!-- Beine -->
+    <rect x="150" y="340" width="30" height="100" fill="#ffcc99" />
+    <rect x="220" y="340" width="30" height="100" fill="#ffcc99" />
+</svg>
 
 </body>
 </html>
