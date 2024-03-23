@@ -6,10 +6,13 @@
 <title>8-Bit Hund</title>
 <style>
     #hund {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         background-color: brown;
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .auge {
         width: 20px;
@@ -17,13 +20,13 @@
         background-color: white;
         border-radius: 50%;
         position: absolute;
-        top: 20px;
+        top: 40%;
     }
     #auge-links {
-        left: 20px;
+        left: 20%;
     }
     #auge-rechts {
-        right: 20px;
+        right: 20%;
     }
     .ohr {
         width: 0;
@@ -35,11 +38,11 @@
         top: 0;
     }
     #ohr-links {
-        left: 10px;
+        left: 0;
         transform: rotate(45deg);
     }
     #ohr-rechts {
-        right: 10px;
+        right: 0;
         transform: rotate(-45deg);
     }
 </style>
