@@ -1,140 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mein Comic-Haustier</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f8f8f8;
-    }
-
-    h1 {
-        margin-top: 20px;
-        font-family: Arial, sans-serif;
-    }
-
-    #button-container {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .button {
-        display: block;
-        width: 100px;
-        height: 40px;
-        margin-bottom: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    #sprechblase {
-        display: none;
-        position: absolute;
-        left: 230px;
-        top: 100px;
-        width: 100px;
-        height: 60px;
-        background-color: #fff;
-        border: 2px solid #000;
-        border-radius: 10px;
-        padding: 10px;
-    }
-
-    #herz {
-        display: none;
-        position: absolute;
-        left: 250px;
-        top: 150px;
-        font-size: 60px;
-        color: red;
-    }
-</style>
+	<title>Tamagotchi</title>
+	<style>
+		#tamagotchi {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
+	<div id="tamagotchi"></div>
+	<button onclick="feedTamagotchi()">Feed</button>
+	<button onclick="playWithTamagotchi()">Play</button>
+	<button onclick="sleepTamagotchi()">Sleep</button>
 
-<h1>Mein Haustier</h1>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="200">
-    <!-- Kopf -->
-    <circle cx="200" cy="200" r="100" fill="#ffcc99" />
-    <!-- Ohren -->
-    <path d="M150 100 L100 50 Q50 100 100 150 Z" fill="#ffcc99" />
-    <path d="M250 100 L300 50 Q350 100 300 150 Z" fill="#ffcc99" />
-    <!-- Augen -->
-    <circle cx="160" cy="180" r="10" fill="#fff" />
-    <circle cx="240" cy="180" r="10" fill="#fff" />
-    <!-- Pupillen -->
-    <circle cx="160" cy="180" r="5" fill="#000" />
-    <circle cx="240" cy="180" r="5" fill="#000" />
-    <!-- Nase -->
-    <circle cx="200" cy="210" r="5" fill="#000" />
-    <!-- Mund -->
-    <path d="M150 230 Q200 260 250 230" fill="none" stroke="#000" stroke-width="3" />
-    <!-- Schnurrhaare -->
-    <line x1="120" y1="210" x2="140" y2="210" stroke="#000" stroke-width="2" />
-    <line x1="260" y1="210" x2="280" y2="210" stroke="#000" stroke-width="2" />
-    <!-- Körper -->
-    <ellipse cx="200" cy="320" rx="100" ry="150" fill="#ffcc99" />
-    <!-- Arme -->
-    <rect x="50" y="200" width="100" height="30" fill="#ffcc99" transform="rotate(-20 50 200)" />
-    <rect x="250" y="200" width="100" height="30" fill="#ffcc99" transform="rotate(20 300 200)" />
-    <!-- Beine -->
-    <rect x="150" y="340" width="30" height="100" fill="#ffcc99" />
-    <rect x="220" y="340" width="30" height="100" fill="#ffcc99" />
-</svg>
-
-<div id="button-container">
-    <button class="button" onclick="fuettern()">Füttern</button>
-    <button class="button" onclick="streicheln()">Streicheln</button>
-</div>
-
-<div id="sprechblase">
-    <p>Lecker!</p>
-</div>
-
-<div id="herz">
-    &hearts;
-</div>
-
-<script>
-function fuettern() {
-    var sprechblase = document.getElementById('sprechblase');
-    sprechblase.style.display = 'block';
-
-    setTimeout(function() {
-        sprechblase.style.display = 'none';
-    }, 3000);
-
-    // Hier können Sie JavaScript-Code hinzufügen, um das Füttern zu implementieren
-    alert("Du hast dein Haustier gefüttert!");
-}
-
-function streicheln() {
-    var herz = document.getElementById('herz');
-    herz.style.display = 'block';
-
-    setTimeout(function() {
-        herz.style.display = 'none';
-    }, 3000);
-
-    // Hier können Sie JavaScript-Code hinzufügen, um das Streicheln zu implementieren
-    alert("Du hast dein Haustier gestreichelt!");
-}
-</script>
-
+	<script src="tamagotchi.js"></script>
 </body>
 </html>
+
+let tamagotchi = {
+    hunger: 50,
+    happiness: 50,
+    energy: 50,
+    sleep: false,
+    awake: false,
+    eating: false,
+    playing: false,
+    age: 0
+};
+
+const tamagotchiElement = document.getElementById("tamagotchi");
+
+function updateTamagotchi() {
+    if (tamagotchi.hunger < 0) {
+        tamagotchi.hunger = 100;
+    }
+    if (tamagotchi.happiness < 0) {
+        tamagotchi.happiness = 100;
+    }
+    if (tamagotchi.energy < 0) {
+        tamagotchi.energy = 100;
+    }
+
+    if (tamagotchi.hunger > 100) {
+        tamagotchi.hunger = 0;
+    }
+    if (tamagotchi.happiness > 100) {
+        tamagotchi.happiness = 0;
+    }
+    if (tamagotchi.energy > 100) {
+        tamagotchi.energy = 0;
+    }
+
+    tamagotchiElement.innerHTML = `
+        <p>Hunger: ${tamagotchi.hunger}</p>
+        <p>Happiness: ${tamagotchi.happiness}</p>
+        <p>Energy: ${tamagotchi.energy}</p>
+        <p>Age: ${tamagotchi.age}</p>
+    `;
+}
+
+function feedTamagotchi() {
+    tamagotchi.hunger -= 10;
+    tamagotchi.energy -= 5;
+    tamagotchi.happiness += 10;
+    updateTamagotchi();
+}
+
+function playWithTamagotchi() {
+    tamagotchi.happiness -= 10;
+    tamagotchi.energy -= 10;
+    tamagotchi.hunger += 5;
+    updateTamagotchi();
+}
+
+function sleepTamagotchi() {
+    tamagotchi.energy += 20;
+    tamagotchi.happiness -= 5;
+    tamagotchi.hunger += 5;
+    updateTamagotchi();
+}
+
+setInterval(() => {
+    tamagotchi.age += 1;
+    tamagotchi.hunger += 1;
+    tamagotchi.happiness -= 1;
+    tamagotchi.energy -= 1;
+    updateTamagotchi();
+}, 1000);
