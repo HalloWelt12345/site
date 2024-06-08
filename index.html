@@ -7,73 +7,57 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
-        .container {
-            position: relative;
-            width: 50%;
-            height: 50%;
-        }
         .box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            flex: 1 1 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100px;
-            height: 100px;
             border: 1px solid #ccc;
             box-sizing: border-box;
             cursor: pointer;
             font-size: 24px;
             font-weight: bold;
-            transition: opacity 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
         }
         .box:hover {
             background-color: #e0e0e0;
         }
         .selected {
-            z-index: 1;
             background-color: blue;
             color: white;
-            width: 200px;
-            height: 200px;
-        }
-        .hidden {
-            opacity: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="box" id="box1">Ritter</div>
-        <div class="box" id="box2">Zauberer</div>
-        <div class="box" id="box3">Bandit</div>
-        <div class="box" id="box4">Priester</div>
-    </div>
+    <div class="box" id="box1">Ritter</div>
+    <div class="box" id="box2">Zauberer</div>
+    <div class="box" id="box3">Bandit</div>
+    <div class="box" id="box4">Priester</div>
 
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
-            // Alle Boxen außer der angeklickten ausblenden
+            // Entferne die Klasse "selected" von allen Boxen
             document.querySelectorAll('.box').forEach(box => {
-                if (box !== event.target) {
-                    box.classList.add('hidden');
-                }
+                box.classList.remove('selected');
             });
-
-            // Die ausgewählte Box vergrößern und zentrieren
+            
+            // Füge die Klasse "selected" zum angeklickten Element hinzu
             event.target.classList.add('selected');
-            event.target.style.transform = 'translate(-50%, -50%) scale(2)';
             
             alert(event.target.textContent + ' wurde angeklickt!');
         }
 
         // Event-Listener zu den Boxen hinzufügen
-        d
+        document.getElementById('box1').addEventListener('click', handleClick);
+        document.getElementById('box2').addEventListener('click', handleClick);
+        document.getElementById('box3').addEventListener('click', handleClick);
+        document.getElementById('box4').addEventListener('click', handleClick);
+    </script>
+</body>
+</html>
