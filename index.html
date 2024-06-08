@@ -20,6 +20,8 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
             cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
         }
         .box:hover {
             background-color: #e0e0e0;
@@ -27,15 +29,15 @@
     </style>
 </head>
 <body>
-    <div class="box" id="box1">Feld 1</div>
-    <div class="box" id="box2">Feld 2</div>
-    <div class="box" id="box3">Feld 3</div>
-    <div class="box" id="box4">Feld 4</div>
+    <div class="box" id="box1">Ritter</div>
+    <div class="box" id="box2">Zauberer</div>
+    <div class="box" id="box3">Bandit</div>
+    <div class="box" id="box4">Priester</div>
 
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
-            alert(event.target.id + ' wurde angeklickt!');
+            alert(event.target.textContent + ' wurde angeklickt!');
         }
 
         // Event-Listener zu den Boxen hinzufügen
