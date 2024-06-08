@@ -13,11 +13,21 @@
             margin: 0;
             background-color: #f0f0f0;
         }
+        .container {
+            position: relative;
+            width: 50%;
+            height: 50%;
+        }
         .box {
-            flex: 1 1 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100px;
+            height: 100px;
             border: 1px solid #ccc;
             box-sizing: border-box;
             cursor: pointer;
@@ -29,41 +39,41 @@
             background-color: #e0e0e0;
         }
         .selected {
+            z-index: 1;
             background-color: blue;
             color: white;
+            width: 200px;
+            height: 200px;
         }
         .hidden {
             opacity: 0;
-            transform: scale(0);
         }
     </style>
 </head>
 <body>
-    <div class="box" id="box1">Ritter</div>
-    <div class="box" id="box2">Zauberer</div>
-    <div class="box" id="box3">Bandit</div>
-    <div class="box" id="box4">Priester</div>
+    <div class="container">
+        <div class="box" id="box1">Ritter</div>
+        <div class="box" id="box2">Zauberer</div>
+        <div class="box" id="box3">Bandit</div>
+        <div class="box" id="box4">Priester</div>
+    </div>
 
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
-            // Alle Boxen verstecken
+            // Alle Boxen außer der angeklickten ausblenden
             document.querySelectorAll('.box').forEach(box => {
-                box.classList.add('hidden');
+                if (box !== event.target) {
+                    box.classList.add('hidden');
+                }
             });
-            
-            // Die ausgewählte Box ins Zentrum bewegen
+
+            // Die ausgewählte Box vergrößern und zentrieren
             event.target.classList.add('selected');
-            event.target.style.transform = 'translate(-50%, -50%)';
+            event.target.style.transform = 'translate(-50%, -50%) scale(2)';
             
             alert(event.target.textContent + ' wurde angeklickt!');
         }
 
         // Event-Listener zu den Boxen hinzufügen
-        document.getElementById('box1').addEventListener('click', handleClick);
-        document.getElementById('box2').addEventListener('click', handleClick);
-        document.getElementById('box3').addEventListener('click', handleClick);
-        document.getElementById('box4').addEventListener('click', handleClick);
-    </script>
-</body>
-</html>
+        d
