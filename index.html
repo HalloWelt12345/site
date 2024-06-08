@@ -7,7 +7,8 @@
     <style>
         body {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -22,14 +23,22 @@
             cursor: pointer;
             font-size: 24px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
         }
         .box:hover {
             background-color: #e0e0e0;
         }
         .selected {
+            z-index: 1;
             background-color: blue;
             color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden {
+            opacity: 0;
         }
     </style>
 </head>
@@ -42,22 +51,23 @@
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
-            // Entferne die Klasse "selected" von allen Boxen
+            // Alle Boxen außer der angeklickten ausblenden
             document.querySelectorAll('.box').forEach(box => {
-                box.classList.remove('selected');
+                if (box !== event.target) {
+                    box.classList.add('hidden');
+                }
             });
-            
-            // Füge die Klasse "selected" zum angeklickten Element hinzu
+
+            // Die ausgewählte Box in die Mitte des Bildschirms bewegen
             event.target.classList.add('selected');
             
             alert(event.target.textContent + ' wurde angeklickt!');
         }
 
         // Event-Listener zu den Boxen hinzufügen
-        document.getElementById('box1').addEventListener('click', handleClick);
-        document.getElementById('box2').addEventListener('click', handleClick);
-        document.getElementById('box3').addEventListener('click', handleClick);
-        document.getElementById('box4').addEventListener('click', handleClick);
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', handleClick);
+        });
     </script>
 </body>
 </html>
