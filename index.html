@@ -26,6 +26,9 @@
         .box:hover {
             background-color: #e0e0e0;
         }
+        .selected {
+            border: 3px solid blue;
+        }
     </style>
 </head>
 <body>
@@ -37,14 +40,16 @@
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
+            // Entferne die Klasse "selected" von allen Boxen
+            document.querySelectorAll('.box').forEach(box => {
+                box.classList.remove('selected');
+            });
+            
+            // Füge die Klasse "selected" zum angeklickten Element hinzu
+            event.target.classList.add('selected');
+            
             alert(event.target.textContent + ' wurde angeklickt!');
         }
 
         // Event-Listener zu den Boxen hinzufügen
-        document.getElementById('box1').addEventListener('click', handleClick);
-        document.getElementById('box2').addEventListener('click', handleClick);
-        document.getElementById('box3').addEventListener('click', handleClick);
-        document.getElementById('box4').addEventListener('click', handleClick);
-    </script>
-</body>
-</html>
+        document.getElementById
