@@ -11,6 +11,7 @@
             justify-content: center;
             height: 100vh;
             background-color: #f0f0f0;
+            cursor: pointer; /* Ändern des Cursors, um anzuzeigen, dass das Element anklickbar ist */
         }
         .segment {
             width: 50px;
@@ -47,7 +48,17 @@
     </div>
 
     <script>
-        // JavaScript-Code hier einfügen, falls erforderlich
-    </script>
-</body>
-</html>
+        // JavaScript-Code für das Würfeln
+        const dice = document.querySelector('.dice');
+
+        // Funktion zum Würfeln
+        function rollDice() {
+            // Array mit den Würfel-Seiten
+            const sides = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+            // Zufällige Seite auswählen
+            const randomSide = sides[Math.floor(Math.random() * sides.length)];
+            // Seite im Würfel anzeigen
+            dice.textContent = randomSide;
+        }
+
+        // Event-Listener zum Würfel
