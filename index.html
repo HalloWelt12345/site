@@ -3,72 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klickbare Felder</title>
+    <title>Würfel</title>
     <style>
-        body {
+        .container {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
         }
-        .container {
-            position: relative;
-            width: 50%;
-            height: 50%;
+        .segment {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border: 1px solid black;
+            margin: 5px;
         }
-        .box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100px;
-            height: 100px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            cursor: pointer;
-            font-size: 24px;
-            font-weight: bold;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        .box:hover {
-            background-color: #e0e0e0;
-        }
-        .selected {
-            z-index: 1;
-            background-color: blue;
-            color: white;
-            width: 200px;
-            height: 200px;
-        }
-        .hidden {
-            opacity: 0;
-        }
-        .values {
-            position: absolute;
-            top: 50%;
-            left: calc(50% + 60px); /* Rechts von der Box */
-            transform: translate(-50%, -50%);
-            font-size: 14px;
-            text-align: left;
+        .dice {
+            font-size: 50px;
+            margin: 0 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="box" id="box1">Ritter</div>
-        <div class="values" id="values1"></div>
-        <div class="box" id="box2">Zauberer</div>
-        <div class="values" id="values2"></div>
-        <div class="box" id="box3">Bandit</div>
-        <div class="values" id="values3"></div>
-        <div class="box" id="box4">Priester</div>
-        <div class="values" id="values4"></div>
+        <div id="leftSegments">
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+        </div>
+        <div class="dice">⚀</div>
+        <div id="rightSegments">
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+            <div class="segment"></div>
+        </div>
     </div>
 
- 
-
+    <script>
+        // JavaScript-Code hier einfügen, falls erforderlich
+    </script>
+</body>
+</html>
