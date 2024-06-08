@@ -1,92 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Tamagotchi</title>
-	<style>
-		#tamagotchi {
-			width: 100px;
-			height: 100px;
-			border: 1px solid black;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laufende Katze</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        #cat {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: left 0.1s linear;
+        }
+    </style>
 </head>
 <body>
-	<div id="tamagotchi"></div>
-	<button onclick="feedTamagotchi()">Feed</button>
-	<button onclick="playWithTamagotchi()">Play</button>
-	<button onclick="sleepTamagotchi()">Sleep</button>
+    <img id="cat" src="https://example.com/cat.png" alt="Laufende Katze">
 
-	<script src="tamagotchi.js"></script>
+    <script>
+        const cat = document.getElementById('cat');
+        let position = -cat.width;
+
+        function moveCat() {
+            position += 2;
+            if (position > window.innerWidth) {
+                position = -cat.width;
+            }
+            cat.style.left = position + 'px';
+            requestAnimationFrame(moveCat);
+        }
+
+        // Lade das Bild und starte die Animation
+        cat.onload = () => {
+            position = -cat.width;
+            moveCat();
+        };
+    </script>
 </body>
 </html>
-
-let tamagotchi = {
-    hunger: 50,
-    happiness: 50,
-    energy: 50,
-    sleep: false,
-    awake: false,
-    eating: false,
-    playing: false,
-    age: 0
-};
-
-const tamagotchiElement = document.getElementById("tamagotchi");
-
-function updateTamagotchi() {
-    if (tamagotchi.hunger < 0) {
-        tamagotchi.hunger = 100;
-    }
-    if (tamagotchi.happiness < 0) {
-        tamagotchi.happiness = 100;
-    }
-    if (tamagotchi.energy < 0) {
-        tamagotchi.energy = 100;
-    }
-
-    if (tamagotchi.hunger > 100) {
-        tamagotchi.hunger = 0;
-    }
-    if (tamagotchi.happiness > 100) {
-        tamagotchi.happiness = 0;
-    }
-    if (tamagotchi.energy > 100) {
-        tamagotchi.energy = 0;
-    }
-
-    tamagotchiElement.innerHTML = `
-        <p>Hunger: ${tamagotchi.hunger}</p>
-        <p>Happiness: ${tamagotchi.happiness}</p>
-        <p>Energy: ${tamagotchi.energy}</p>
-        <p>Age: ${tamagotchi.age}</p>
-    `;
-}
-
-function feedTamagotchi() {
-    tamagotchi.hunger -= 10;
-    tamagotchi.energy -= 5;
-    tamagotchi.happiness += 10;
-    updateTamagotchi();
-}
-
-function playWithTamagotchi() {
-    tamagotchi.happiness -= 10;
-    tamagotchi.energy -= 10;
-    tamagotchi.hunger += 5;
-    updateTamagotchi();
-}
-
-function sleepTamagotchi() {
-    tamagotchi.energy += 20;
-    tamagotchi.happiness -= 5;
-    tamagotchi.hunger += 5;
-    updateTamagotchi();
-}
-
-setInterval(() => {
-    tamagotchi.age += 1;
-    tamagotchi.hunger += 1;
-    tamagotchi.happiness -= 1;
-    tamagotchi.energy -= 1;
-    updateTamagotchi();
-}, 1000);
