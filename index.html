@@ -7,7 +7,8 @@
     <style>
         body {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -22,7 +23,7 @@
             cursor: pointer;
             font-size: 24px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
         }
         .box:hover {
             background-color: #e0e0e0;
@@ -30,6 +31,10 @@
         .selected {
             background-color: blue;
             color: white;
+        }
+        .hidden {
+            opacity: 0;
+            transform: scale(0);
         }
     </style>
 </head>
@@ -42,13 +47,14 @@
     <script>
         // Funktion zur Verarbeitung von Klicks
         function handleClick(event) {
-            // Entferne die Klasse "selected" von allen Boxen
+            // Alle Boxen verstecken
             document.querySelectorAll('.box').forEach(box => {
-                box.classList.remove('selected');
+                box.classList.add('hidden');
             });
             
-            // Füge die Klasse "selected" zum angeklickten Element hinzu
+            // Die ausgewählte Box ins Zentrum bewegen
             event.target.classList.add('selected');
+            event.target.style.transform = 'translate(-50%, -50%)';
             
             alert(event.target.textContent + ' wurde angeklickt!');
         }
